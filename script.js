@@ -17,33 +17,11 @@ function getComputerChoice() {
     }
     return number;
 }
-
-function getPlayerChoice() {
-    let playerChoice = prompt("What is your choice?");
-
-    if (playerChoice === "Rock" || playerChoice === "rock")
-    {
-        console.log("Player chooses Rock");
-        return "rock";
-    }
-    else if (playerChoice === "Paper" || playerChoice === "paper")
-    {
-        console.log("Player chooses Paper");
-        return "paper";
-    }
-    else if (playerChoice === "Scissors" || playerChoice === "scissors")
-    {
-        console.log("Player chooses Scissors");
-        return "scissors";
-    }
-    else
-    {
-        console.log("Misinput. Please try again.")
-        return getPlayerChoice();
-    }
-}
-
-function playRound(playerChoice, computerChoice) {
+ 
+function playRound(button) {
+    let playerChoice = button.target.id;
+    console.log("Player chooses " + button.target.id);
+    let computerChoice = getComputerChoice();
     let result;
     if (playerChoice === "rock" && computerChoice === "rock" || playerChoice === "paper" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "scissors")
     {
@@ -83,28 +61,28 @@ function playRound(playerChoice, computerChoice) {
     return result;
 }
 
-// function game() {
-//     let playerScore = 0, computerScore = 0, roundsPlayed = 0;
+function game() {
+    let playerScore = 0, computerScore = 0, roundsPlayed = 0;
 
-//     for (roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++)
-//     {
-//         const playerChoice = getPlayerChoice();
-//         const computerChoice = getComputerChoice();
+    // for (roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++)
+    // {
+        const playerChoice = getPlayerChoice();
+        const computerChoice = getComputerChoice();
 
-//         let result = playRound(playerChoice, computerChoice);
+        let result = playRound(playerChoice, computerChoice);
 
-//         if (result === "win")
-//         {
-//             playerScore++;
-//             // roundsPlayed++
-//         }
-//         else if (result === "lose")
-//         {
-//             computerScore++;
-//             // roundsPlayed++
-//         }
-//         console.log("Current score is:", playerScore, "-", computerScore);
-//     }
+        if (result === "win")
+        {
+            playerScore++;
+            // roundsPlayed++
+        }
+        else if (result === "lose")
+        {
+            computerScore++;
+            // roundsPlayed++
+        }
+        // console.log("Current score is:", playerScore, "-", computerScore);
+    // }
 
 //     finalScore = console.log("Result is:", playerScore, "-", computerScore);
 //     if (playerScore > computerScore)
@@ -119,7 +97,7 @@ function playRound(playerChoice, computerChoice) {
 //     {
 //         console.log("It's a tie!")
 //     }
-// }
+}
 
 
 // playRound(playerChoice, computerChoice);
@@ -127,7 +105,7 @@ function playRound(playerChoice, computerChoice) {
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
-    button.addEventListener('click', () => console.log(button.id));
+    button.addEventListener('click', playRound);
 });
 
 // game();
