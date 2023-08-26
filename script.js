@@ -83,44 +83,51 @@ function playRound(playerChoice, computerChoice) {
     return result;
 }
 
-function game() {
-    let playerScore = 0, computerScore = 0, roundsPlayed = 0;
+// function game() {
+//     let playerScore = 0, computerScore = 0, roundsPlayed = 0;
 
-    for (roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++)
-    {
-        const playerChoice = getPlayerChoice();
-        const computerChoice = getComputerChoice();
+//     for (roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++)
+//     {
+//         const playerChoice = getPlayerChoice();
+//         const computerChoice = getComputerChoice();
 
-        let result = playRound(playerChoice, computerChoice);
+//         let result = playRound(playerChoice, computerChoice);
 
-        if (result === "win")
-        {
-            playerScore++;
-            // roundsPlayed++
-        }
-        else if (result === "lose")
-        {
-            computerScore++;
-            // roundsPlayed++
-        }
-        console.log("Current score is:", playerScore, "-", computerScore);
-    }
+//         if (result === "win")
+//         {
+//             playerScore++;
+//             // roundsPlayed++
+//         }
+//         else if (result === "lose")
+//         {
+//             computerScore++;
+//             // roundsPlayed++
+//         }
+//         console.log("Current score is:", playerScore, "-", computerScore);
+//     }
 
-    finalScore = console.log("Result is:", playerScore, "-", computerScore);
-    if (playerScore > computerScore)
-    {
-        console.log("Player won!")
-    }
-    else if (playerScore < computerScore)
-    {
-        console.log("Player lost!")
-    }
-    else
-    {
-        console.log("It's a tie!")
-    }
-}
+//     finalScore = console.log("Result is:", playerScore, "-", computerScore);
+//     if (playerScore > computerScore)
+//     {
+//         console.log("Player won!")
+//     }
+//     else if (playerScore < computerScore)
+//     {
+//         console.log("Player lost!")
+//     }
+//     else
+//     {
+//         console.log("It's a tie!")
+//     }
+// }
 
 
 // playRound(playerChoice, computerChoice);
-game();
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => console.log(button.id));
+});
+
+// game();
